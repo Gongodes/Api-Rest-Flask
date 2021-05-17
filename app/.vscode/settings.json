@@ -1,0 +1,5 @@
+{
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true,
+    "python.pythonPath": "/home/gonzalo/Documentos/Proyectos/api-rest-flask/env/bin/python3.9"
+}
