@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title Page</title>
+
+   
+</head>
+
+<body class="container">
+
+
+
+
+
+    <form action={{url_for("app.crear_pelicula")}} method="POST">
+    Nombre: <input class="form-control" type="text" name="nombre" autofocus required />
+    <br />
+    
+    Director: <input class="form-control" type="text" name="director" autofocus required />
+    <br />
+
+    
+    Genero: <input class="form-control" type="text" name="genero" autofocus required />
+    <br />
+    
+
+    <input class="btn btn-primary" type="submit" value="Crear">
+    </form> <a href="{{url_for('app.iniciar_sesion')}}">Cerrar Sesion</a>
+
+
+
+
+
+
+
+
+
+    <table style=" margin-top: 2em;" class="table table-info table-striped table-bordered">
+        <thead style="text-align: center">
+            <tr>
+
+                <th scope="col">nombre</th>
+                
+                <th scope="col">director</th>
+                
+                <th scope="col">genero</th>
+                
+                <th scope="col">borrar</th>
+
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for info in info %}
+
+            <tr>
+                <td style="text-align: center">{{ info['nombre'] }}</td>
+                
+                <td style="text-align: center">{{ info['director'] }}</td>
+                
+                <td style="text-align: center">{{ info['genero'] }}</td>
+                
+                <td style="text-align: center">
+                    <form action={{url_for("app.eliminar_pelicula_por_id", id=info['id'])}} method="POST"> 
+                        <input            
+                        type="submit" value="borrar" />
+                    </form>
+                </td>
+
+
+
+
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>  
+</body>
+
+</html>
